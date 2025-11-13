@@ -11,19 +11,19 @@ import Link from 'next/link'
 
 const teams = [
     {
-        title: 'Valorant',
+        href: 'valorant',
         logo: '/teams/valorant_logo.png',
         backdrop: '/teams/valorant_backdrop.webp',
         remark: ''
     },
     {
-        title: 'Marvel Rivals',
+        href: 'marvel_rivals',
         logo: '/teams/marvel_rivals_logo.webp',
         backdrop: '/teams/marvel_rivals_backdrop.webp',
         remark: ''
     },
     {
-        title: 'Overwatch 2',
+        href: 'overwatch_2',
         logo: '/teams/overwatch_2_logo.webp',
         backdrop: '/teams/overwatch_2_backdrop.webp',
         remark: ''
@@ -88,18 +88,18 @@ export function Navbar() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-center gap-8 lg:gap-12">
                     {teams.map((team, index) =>
-                    <div className="relative max-h-64 aspect-video cursor-pointer group" key={index}>
+                    <Link className="relative max-h-64 aspect-video group" href={`/teams/${team.href}`} onClick={() => {setShowTeams(false)}} key={index}>
 
                         <Image className="absolute w-full h-full object-cover group-hover:blur-xl opacity-0 group-hover:opacity-50 rounded-xl transition-all duration-300" src={team.backdrop} alt="" width={1920} height={1080} />
 
                         <div className="relative w-full h-full flex flex-col items-center justify-center rounded-xl overflow-hidden">
 
-                            <Image className="z-30 h-[50%] drop-shadow-2xl object-contain" src={team.logo} alt={team.title + " - game logo"} width={1000} height={1000} />
+                            <Image className="z-30 h-[50%] drop-shadow-2xl object-contain" src={team.logo} alt={team.href + " game logo"} width={1000} height={1000} />
                             <div className="z-20 absolute w-full h-full bg-linear-to-b from-transparent to-black/85" />
-                            <Image className="z-10 absolute w-full h-full object-cover opacity-90 group-hover:blur-xs transition-all rounded-2xl" src={team.backdrop} alt={team.title} width={1920} height={1080} />
+                            <Image className="z-10 absolute w-full h-full object-cover opacity-90 group-hover:blur-xs transition-all rounded-2xl" src={team.backdrop} alt={team.href} width={1920} height={1080} />
                         </div>
                         
-                    </div>
+                    </Link>
                     )}
                 </div>
 
