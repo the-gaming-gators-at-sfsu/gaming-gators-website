@@ -93,7 +93,7 @@ export function Navbar() {
                                     onClick={() => {setShowTeams(false)}}
                                     key={teamName}
                                 >
-                                    <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-300 lg:duration-100" src={team.backdrop} alt="" width={1920} height={1080} />
+                                    <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-200 lg:duration-100" src={team.backdrop} alt="" width={1920} height={1080} />
 
                                     <div className="relative w-full h-full flex flex-col items-center justify-center rounded-xl overflow-hidden">
 

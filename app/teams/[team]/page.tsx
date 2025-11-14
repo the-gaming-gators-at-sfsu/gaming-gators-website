@@ -64,10 +64,10 @@ export default async function TeamPage({
                 {/* <video className="-z-10 absolute w-full h-full object-cover" src="/teams/valorant_backdrop.webm" autoPlay loop muted /> */}
                 <Image className="-z-10 absolute w-full h-full object-cover opacity-5" src="/hex_backdrop.webp" alt="" width={1920} height={1080} />
 
-                <div className="z-30 flex flex-col items-center justify-center gap-6 py-8 ">
+                <div className="z-30 flex flex-col items-center justify-center gap-6 py-8">
                     <Image className="w-[24vw] min-w-48 drop-shadow-black drop-shadow-2xl object-contain" src={teamDetails.logo} alt="" width={512} height={512} />
                     <Link
-                        className="z-30 flex flex-row items-center gap-2 font-semibold border border-white/20 py-2 px-12 hover:px-18 rounded-xl transition-all"
+                        className="z-30 flex flex-row items-center gap-2 font-semibold hover:bg-white/20 active:bg-transparent border border-white/20 py-2 px-12 rounded-xl transition-all"
                         href="/teams"
                     >
                         <IoMdReturnLeft />
