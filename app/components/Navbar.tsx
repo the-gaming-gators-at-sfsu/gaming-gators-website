@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 
+import { FaDiscord } from 'react-icons/fa6'
 import { IoHomeOutline, IoPeopleOutline } from 'react-icons/io5'
 import { LuTrophy } from 'react-icons/lu'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'
@@ -20,13 +21,15 @@ export function Navbar() {
             <div className="w-[84%] bg-[#dc90f7]/30 backdrop-blur-xl rounded-b-4xl">
 
                 <div className="w-full h-18 flex flex-row items-center justify-between px-36">
-                    <div>
-                        <Image src={"/bits/gaming_gators_logomark.webp"} alt="" width={52} height={52} />
+                    <div className="px-6">
+                        <Link href="/">
+                            <Image src={"/bits/gaming_gators_logomark.webp"} alt="" width={52} height={52} />
+                        </Link>
                     </div>
 
-                    <div className="flex flex-row gap-12">
+                    <div className="flex flex-row gap-4">
                         <Link
-                            className="flex font-semibold items-center gap-2 drop-shadow-black/35 drop-shadow-sm"
+                            className="flex font-semibold items-center gap-2 hover:bg-white/20 active:bg-transparent px-4 py-2 rounded-lg drop-shadow-black/35 drop-shadow-sm transition-colors"
                             onMouseEnter={() => { setShowTeams(false) }}
                             href={"/"}
                         >
@@ -34,16 +37,16 @@ export function Navbar() {
                             Home
                         </Link>
                         <p
-                            className="flex font-semibold items-center gap-2 drop-shadow-black/35 drop-shadow-sm cursor-pointer"
+                            className="flex font-semibold items-center gap-2 hover:bg-amber-300/30 active:bg-transparent px-4 py-2 rounded-lg drop-shadow-black/35 drop-shadow-sm cursor-pointer transition-colors"
                             onMouseEnter={() => { setShowTeams(true) }}
                             onClick={() => { setShowTeams(!showTeams) }}
                         >
                             <LuTrophy />
                             Teams
-                            { showTeams ? <FaAngleUp/> : <FaAngleDown /> }
+                            {showTeams ? <FaAngleUp /> : <FaAngleDown />}
                         </p>
                         <Link
-                            className="flex font-semibold items-center gap-2 drop-shadow-black/35 drop-shadow-sm"
+                            className="flex font-semibold items-center gap-2 hover:bg-sky-300/30 px-4 active:bg-transparent py-2 rounded-lg drop-shadow-black/35 drop-shadow-sm transition-colors"
                             onMouseEnter={() => { setShowTeams(false) }}
                             href={"/organization"}
                         >
@@ -53,19 +56,24 @@ export function Navbar() {
                     </div>
 
                     <div>
-                        -
+                        {/* <Link href={""}></Link> */}
+                        <Link
+                            className="flex flex-row items-center gap-2 font-semibold hover:bg-blue-400/30 active:bg-transparent px-4 py-2 rounded-lg transition-colors"
+                            href="https://discord.gg/dpyyQfcphu"
+                            target="_blank"
+                        >
+                            <FaDiscord />
+                            Join Us
+                        </Link>
                     </div>
                 </div>
 
 
 
                 <div
-                    className={`relative w-full flex flex-col items-center justify-center gap-8 bg-linear-to-t from-transparent via-neutral-950 to-neutral-950 border-b border-white/30 rounded-b-4xl lg:transition-all lg:duration-300 overflow-auto lg:overflow-hidden ${showTeams ? 'opacity-100 h-screen lg:h-auto min-h-96 p-8 lg:p-16' : 'opacity-0 min-h-0 h-0 p-0 overflow-hidden'}`}
+                    className={`relative w-full flex flex-col items-center justify-center gap-8 bg-linear-to-t from-transparent via-neutral-900 to-neutral-900 border-b border-white/30 rounded-b-4xl lg:transition-all lg:duration-300 overflow-auto lg:overflow-hidden ${showTeams ? 'opacity-100 h-screen lg:h-auto min-h-96 p-8 lg:p-16' : 'opacity-0 min-h-0 h-0 p-0 overflow-hidden'}`}
                     onMouseLeave={() => { setShowTeams(false) }}
                 >
-                    <Image className="absolute w-full h-full object-cover opacity-3" src={"/hex_backdrop.webp"} alt="" width={1920} height={1080} />
-                    <Image className={`absolute w-[50%] h-full object-cover transition-all duration-1000 ${showTeams ? 'opacity-2 blur-none translate-y-[10%]' : 'opacity-0 blur-2xl translate-y-[100%]'}`} src={"/bits/gaming_gators_logomark.webp"} alt="" width={1920} height={1080} />
-
                     <div className="flex flex-col items-center text-center">
                         <h1 className="flex flex-row items-center gap-2 text-2xl font-bold">
                             <LuTrophy />
@@ -85,7 +93,7 @@ export function Navbar() {
                                     onClick={() => {setShowTeams(false)}}
                                     key={teamName}
                                 >
-                                    <Image className="absolute w-full h-full object-cover group-hover:blur-xl opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-300" src={team.backdrop} alt="" width={1920} height={1080} />
+                                    <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-300 lg:duration-100" src={team.backdrop} alt="" width={1920} height={1080} />
 
                                     <div className="relative w-full h-full flex flex-col items-center justify-center rounded-xl overflow-hidden">
 
@@ -100,13 +108,16 @@ export function Navbar() {
                     </div>
 
                     <Link
-                        className="z-10 flex flex-row items-center gap-2 font-semibold border border-white/20 py-2 px-12 hover:px-18 rounded-xl transition-all"
+                        className="flex flex-row items-center gap-2 font-semibold hover:bg-white/20 active:bg-transparent border border-white/20 py-2 px-12 rounded-xl transition-all"
                         href="/teams"
                         onClick={() => {setShowTeams(false)}}
                     >
                         <LuTrophy />
                         View all Teams
                     </Link>
+
+                    <Image className={`-z-10 absolute w-[50%] h-full object-cover transition-all duration-1000 ${showTeams ? 'opacity-2 blur-none translate-y-[10%]' : 'opacity-0 blur-2xl translate-y-[100%]'}`} src={"/bits/gaming_gators_logomark.webp"} alt="" width={1920} height={1080} />
+                    <Image className="-z-10 absolute w-full h-full object-cover opacity-3" src={"/hex_backdrop.webp"} alt="" width={1920} height={1080} />
                 </div>
             </div>
         </nav>
