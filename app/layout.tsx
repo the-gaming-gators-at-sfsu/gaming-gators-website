@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+import { Inter_Tight } from 'next/font/google'
 
 import type { Metadata } from "next"
 import "./globals.css"
@@ -6,7 +6,7 @@ import "./globals.css"
 import { Navbar } from "./components/Navbar"
 import { Footer } from "./components/Footer"
 
-const inter = Inter({
+const inter = Inter_Tight({
   weight: 'variable'
 })
 
