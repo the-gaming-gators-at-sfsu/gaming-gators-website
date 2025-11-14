@@ -86,8 +86,7 @@ export default async function TeamPage({
                     </div>
 
                     <div className="flex flex-wrap justify-left flex-row gap-8 overflow-auto">
-                        {roster.map((player, index) => {
-                        return (
+                        {roster.map((player, index) =>
                             <div className="relative w-72 h-92 bg-neutral-900 rounded-xl border border-white/20 overflow-hidden" key={index}>
                                 <Image className="w-full h-full object-cover" src="/bits/empty_silhoutte.png" alt="" width={320} height={320} />
 
@@ -97,8 +96,7 @@ export default async function TeamPage({
                                     <p>{player.description}</p>
                                 </div>
                             </div>
-                        )
-                        })}
+                        )}
                     </div>
                 </div>
 
