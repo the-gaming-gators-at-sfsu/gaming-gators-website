@@ -23,6 +23,7 @@ export default function Teams() {
                 </div>
             </div>
 
+            {/* TODO: should ensure visual symmetry with the navbar teams section */}
             <div className="w-full px-[10%] py-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-8 xl:gap-12">
             {Object.entries(teams).map(([teamName]) => {
                 const team = teams[teamName]
@@ -32,7 +33,7 @@ export default function Teams() {
                         href={`/teams/${teamName}`}
                         key={teamName}
                     >
-                        <Image className="absolute w-full h-full object-cover group-hover:blur-xl opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-300" src={team.backdrop} alt="" width={1920} height={1080} />
+                        <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-300 group-active:duration-100" src={team.backdrop} alt="" width={1920} height={1080} />
 
                         <div className="relative w-full h-full flex flex-col items-center justify-center rounded-xl overflow-hidden">
 
