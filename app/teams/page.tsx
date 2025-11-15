@@ -5,15 +5,16 @@ import { teams } from '@/dispositions/teams'
 
 export default function Teams() {
     return (
-        <main className="pt-9">
+        <main className="">
             
             {/* hero */}
-            <div className="relative w-full h-[26vw] min-h-64 flex items-center justify-center lg:justify-center border-y border-white/40">
-                <div className="z-10 absolute bottom-0 w-full h-1/2 bg-linear-to-b from-transparent to-black" />
-                <div className="z-10 absolute left-1/2 w-1/3 h-full bg-linear-to-l from-transparent to-black/90" />
-                <div className="z-10 absolute right-1/2 w-1/3 h-full bg-linear-to-r from-transparent to-black/90" />
-                <video className="-z-10 absolute w-full h-full object-cover" src="/teams/valorant_backdrop.webm" autoPlay loop muted />
-                <Image className="-z-10 absolute w-full h-full object-cover opacity-5" src="/hex_backdrop.webp" alt="" width={1920} height={1080} />
+            <div className="relative w-full h-[calc(26vw+72px)] min-h-64 flex items-center justify-center lg:justify-center border-y border-white/40 pt-[72px]">
+                <div className="z-10 absolute top-0 left-1/2 w-1/3 h-full bg-linear-to-l from-transparent to-black/75" />
+                <div className="z-10 absolute top-0 right-1/2 w-1/3 h-full bg-linear-to-r from-transparent to-black/75" />
+                <div className="z-10 absolute bottom-0 w-full h-1/5 bg-linear-to-b from-transparent to-black/75" />
+
+                <video className="-z-10 absolute top-0 w-full h-full object-cover" src="/teams/valorant_backdrop.webm" autoPlay loop muted />
+                <Image className="-z-10 absolute top-0 w-full h-full object-cover opacity-5" src="/hex_backdrop.webp" alt="" width={1920} height={1080} />
 
                 <div className="z-30 flex flex-col items-center justify-center gap-2 lg:gap-6 py-8 ">
                     <Image className="w-24 aspect-square drop-shadow-black drop-shadow-2xl object-contain" src="/bits/gaming_gators_logomark.webp" alt="" width={128} height={128} />
@@ -33,10 +34,11 @@ export default function Teams() {
                         href={`/teams/${teamName}`}
                         key={teamName}
                     >
-                        <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-300 group-active:duration-100" src={team.backdrop} alt="" width={1920} height={1080} />
+                        {/* underglow blur effect */}
+                        <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-200 group-active:duration-100" src={team.backdrop} alt="" width={1920} height={1080} />
 
+                        {/* main card body */}
                         <div className="relative w-full h-full flex flex-col items-center justify-center rounded-xl overflow-hidden">
-
                             <Image className="z-30 h-[50%] drop-shadow-2xl object-contain" src={team.logo} alt={teamName + " game logo"} width={1000} height={1000} />
                             <div className="z-20 absolute w-full h-full bg-linear-to-b from-transparent to-black/85" />
                             <Image className="z-10 absolute w-full h-full object-cover opacity-90 group-hover:blur-xs border-2 border-white/50 transition-all duration-500 rounded-xl" src={team.backdrop} alt={teamName} width={1920} height={1080} />
