@@ -1,4 +1,4 @@
-# 🌍 Our Club Website
+# 🌍 The Gaming Gators Website
 
 [![Discord](https://img.shields.io/discord/305120283373600779?logo=discord)](https://discord.gg/dpyyQfcphu) ![CodeQL](https://github.com/the-gaming-gators-at-sfsu/gaming-gators-website/workflows/CodeQL/badge.svg) [![Vercel](https://img.shields.io/github/deployments/the-gaming-gators-at-sfsu/gaming-gators-website/production?&logo=vercel&label=Vercel%20Deployment)](https://github.com/Skyline-College-Computer-Science-Club/project.ClubWebsite/deployments/Production)
 
