@@ -18,16 +18,16 @@ export function Navbar() {
     return (
         <nav className="z-50 fixed w-full flex justify-center">
 
-            <div className="w-[84%] bg-[#dc90f7]/30 backdrop-blur-xl rounded-b-4xl">
+            <div className="w-full md:w-[84%] bg-[#dc90f7]/30 backdrop-blur-xl rounded-b-4xl">
 
-                <div className="w-full h-18 flex flex-row items-center justify-between px-36">
+                <div className="w-full h-18 flex flex-row items-center justify-between lg:px-36">
                     <div className="px-6">
                         <Link href="/">
                             <Image src={"/bits/gaming_gators_logomark.webp"} alt="" width={52} height={52} />
                         </Link>
                     </div>
 
-                    <div className="flex flex-row gap-4">
+                    <div className="flex flex-row lg:gap-4">
                         <Link
                             className="flex font-semibold items-center gap-2 hover:bg-white/20 active:bg-transparent px-4 py-2 rounded-lg drop-shadow-black/35 drop-shadow-sm transition-colors"
                             onMouseEnter={() => { setShowTeams(false) }}
@@ -71,7 +71,7 @@ export function Navbar() {
 
 
                 <div
-                    className={`relative w-full flex flex-col items-center justify-center gap-8 bg-linear-to-t from-transparent via-neutral-900 to-neutral-900 border-b border-white/30 rounded-b-4xl lg:transition-all lg:duration-300 overflow-auto lg:overflow-hidden ${showTeams ? 'opacity-100 h-screen lg:h-auto min-h-96 p-8 lg:p-16' : 'opacity-0 min-h-0 h-0 p-0 overflow-hidden'}`}
+                    className={`relative w-full flex flex-col items-center justify-center gap-8 bg-linear-to-t from-transparent via-neutral-900/75 to-neutral-900/50 border-b border-white/30 rounded-b-4xl lg:transition-all lg:duration-300 overflow-auto lg:overflow-hidden ${showTeams ? 'opacity-100 h-screen lg:h-auto min-h-96 p-8 lg:p-16' : 'opacity-0 min-h-0 h-0 p-0 overflow-hidden'}`}
                     onMouseLeave={() => { setShowTeams(false) }}
                 >
                     <div className="flex flex-col items-center text-center">
@@ -88,20 +88,21 @@ export function Navbar() {
                             const team = teams[teamName]
                             return (
                                 <Link
-                                    className="relative max-h-48 2xl:max-h-64 aspect-video group"
+                                    className="relative max-h-48 2xl:max-h-64 aspect-video group drop-shadow-black/50 hover:drop-shadow-xl"
                                     href={`/teams/${teamName}`}
                                     onClick={() => {setShowTeams(false)}}
                                     key={teamName}
                                 >
-                                    <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-200 lg:duration-100" src={team.backdrop} alt="" width={1920} height={1080} />
+                                    {/* underglow blur effect */}
+                                    <Image className="absolute w-full h-full object-cover group-hover:blur-md group-active:blur-xs opacity-0 group-hover:opacity-100 rounded-xl transition-all duration-200" src={team.backdrop} alt="" width={1920} height={1080} />
 
+                                    {/* main card body */}
                                     <div className="relative w-full h-full flex flex-col items-center justify-center rounded-xl overflow-hidden">
-
                                         <Image className="z-30 h-[50%] drop-shadow-2xl object-contain" src={team.logo} alt={teamName + " game logo"} width={1000} height={1000} />
                                         <div className="z-20 absolute w-full h-full bg-linear-to-b from-transparent to-black/85" />
                                         <Image className="z-10 absolute w-full h-full object-cover opacity-90 group-hover:blur-xs border-2 border-white/50 transition-all duration-500 rounded-xl" src={team.backdrop} alt={teamName} width={1920} height={1080} />
                                     </div>
-                                    
+
                                 </Link>
                             )
                         })}
@@ -113,13 +114,14 @@ export function Navbar() {
                         onClick={() => {setShowTeams(false)}}
                     >
                         <LuTrophy />
-                        View all Teams
+                        View Teams Page
                     </Link>
 
-                    <Image className={`-z-10 absolute w-[50%] h-full object-cover transition-all duration-1000 ${showTeams ? 'opacity-2 blur-none translate-y-[10%]' : 'opacity-0 blur-2xl translate-y-[100%]'}`} src={"/bits/gaming_gators_logomark.webp"} alt="" width={1920} height={1080} />
+                    <Image className={`absolute w-[50%] h-full object-cover transition-all duration-1000 pointer-events-none ${showTeams ? 'opacity-2 blur-none translate-y-[10%]' : 'opacity-0 blur-2xl translate-y-[100%]'}`} src={"/bits/gaming_gators_logomark.webp"} alt="" width={1920} height={1080} />
                     <Image className="-z-10 absolute w-full h-full object-cover opacity-3" src={"/hex_backdrop.webp"} alt="" width={1920} height={1080} />
                 </div>
             </div>
+
         </nav>
     )
 }

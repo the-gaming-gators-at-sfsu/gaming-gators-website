@@ -5,6 +5,7 @@ import { IoMdReturnLeft } from 'react-icons/io'
 
 import { teams } from '@/dispositions/teams'
 import { IntroFade } from '@/components/IntroFade'
+import { PortraitCard } from '@/components/PortaitCard'
 
 const roster = [
     {
@@ -25,7 +26,8 @@ const roster = [
     {
         name: "Lance Ruiz",
         title: "Vanguard",
-        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game."
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        discord: "https://www.discord.gg"
     },
     {
         name: "Lance Ruiz",
@@ -48,21 +50,22 @@ export default async function TeamPage({
     const teamDetails = teams[team]
 
     if (!teamDetails) {
-        return <p>team not found</p>
+        return <p>{team} not found</p>
     }
 
     return (
-        <main className="w-full flex flex-col pt-18">
+        <main className="w-full flex flex-col">
             <IntroFade />
 
             {/* hero */}
-            <div className="relative w-full h-[26vw] min-h-64 flex items-center justify-center lg:justify-center border-b border-white/40">
-                {/* <div className="z-10 absolute bottom-0 w-full h-1/2 bg-linear-to-b from-transparent to-black" /> */}
-                <div className="z-10 absolute left-1/2 w-1/3 h-full bg-linear-to-l from-transparent to-black/90" />
-                <div className="z-10 absolute right-1/2 w-1/3 h-full bg-linear-to-r from-transparent to-black/90" />
-                <Image className="-z-10 absolute w-full h-full object-cover object-top" src={teamDetails.backdrop} alt="" width={1920} height={1080} />
+            <div className="relative w-full h-[calc(26vw+72px)] min-h-64 flex items-center justify-center lg:justify-center border-b border-white/40 pt-[72px]">
+                <div className="z-10 absolute top-0 left-1/2 w-1/3 h-full bg-linear-to-l from-transparent to-black/90" />
+                <div className="z-10 absolute top-0 right-1/2 w-1/3 h-full bg-linear-to-r from-transparent to-black/90" />
+                <div className="z-10 absolute bottom-0 w-full h-1/5 bg-linear-to-b from-transparent to-black/75" />
+
+                <Image className="-z-10 absolute top-0 w-full h-full object-cover object-top" src={teamDetails.backdrop} alt="" width={1920} height={1080} />
                 {/* <video className="-z-10 absolute w-full h-full object-cover" src="/teams/valorant_backdrop.webm" autoPlay loop muted /> */}
-                <Image className="-z-10 absolute w-full h-full object-cover opacity-5" src="/hex_backdrop.webp" alt="" width={1920} height={1080} />
+                <Image className="-z-10 absolute top-0 w-full h-full object-cover opacity-5" src="/hex_backdrop.webp" alt="" width={1920} height={1080} />
 
                 <div className="z-30 flex flex-col items-center justify-center gap-6 py-8">
                     <Image className="w-[24vw] min-w-48 drop-shadow-black drop-shadow-2xl object-contain" src={teamDetails.logo} alt="" width={512} height={512} />
@@ -81,21 +84,13 @@ export default async function TeamPage({
 
                 <div className="flex flex-col gap-8">
                     <div>
-                        <h1 className="text-5xl font-semibold">Roster</h1>
-                        <p className="text-neutral-400">View our current starting line-up.</p>
+                        <h1 className="text-5xl font-semibold">Team Roster</h1>
+                        <p className="text-neutral-400">Hover cards to view quote and socials.</p>
                     </div>
 
                     <div className="flex flex-wrap justify-left flex-row gap-8 overflow-auto">
                         {roster.map((player, index) =>
-                            <div className="relative w-72 h-92 bg-neutral-900 rounded-xl border border-white/20 overflow-hidden" key={index}>
-                                <Image className="w-full h-full object-cover" src="/bits/empty_silhoutte.png" alt="" width={320} height={320} />
-
-                                <div className="absolute bottom-0 flex flex-col p-4">
-                                    <h3 className="text-2xl font-bold">{player.name}</h3>
-                                    <p className="italic">{player.title}</p>
-                                    <p>{player.description}</p>
-                                </div>
-                            </div>
+                        <PortraitCard name={player.name} title={player.title} description={player.description} image={player.photo || ""} discord={player.discord || ""} key={index} />
                         )}
                     </div>
                 </div>

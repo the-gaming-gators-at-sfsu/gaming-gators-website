@@ -12,7 +12,7 @@ const inter = Inter_Tight({
 
 export const metadata: Metadata = {
   title: "🐊 The Gaming Gators @ SFSU",
-  description: "The official student-championed e-sports and general gaming organization at SFSU.",
+  description: "The official student-championed e-sports + general gaming organization at SFSU.",
 }
 
 export default function RootLayout({
