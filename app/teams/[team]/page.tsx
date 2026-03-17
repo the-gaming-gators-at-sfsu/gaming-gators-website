@@ -135,9 +135,9 @@ export default async function TeamPage({
 
                     <div className="flex flex-wrap justify-left flex-row gap-8 overflow-auto">
                         {roster.map((player, index) =>
-                        <PerspectiveCard key={index}>
+                        // <PerspectiveCard key={index}>
                             <PortraitCard name={player.name} title={player.title} description={player.description} photo={player.photo || ""} discord={player.discord || ""} key={index} />
-                        </PerspectiveCard>
+                        // </PerspectiveCard>
                         )}
                     </div>
                 </div>
