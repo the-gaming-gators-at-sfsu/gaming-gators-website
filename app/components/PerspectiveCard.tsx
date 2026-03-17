@@ -1,12 +1,14 @@
 'use client'
 
-import { MouseEvent, useEffect, useRef, useState } from 'react'
+import { MouseEvent, ReactNode, useEffect, useRef, useState } from 'react'
 
 interface PerspectiveCardProps {
-
+    children: ReactNode
+    maxAngleX?: number
+    maxAngleY?: number
 }
 
-export function PerspectiveCard({ children }) {
+export function PerspectiveCard({ children, maxAngleX, maxAngleY }: PerspectiveCardProps) {
 
     const [perspective, setPerspective] = useState('')
     const [hovering, setHovering] = useState(false)
@@ -15,6 +17,8 @@ export function PerspectiveCard({ children }) {
     const cardBoundsRef = useRef(null)
 
     function updatePerspective(event: MouseEvent) {
+        if (!cardBoundsRef.current) return
+
         const cardBounds = cardBoundsRef.current
 
         const mouseX = (event.clientX + window.scrollX) - (cardBounds.x + cardBounds.width / 2)
@@ -23,8 +27,8 @@ export function PerspectiveCard({ children }) {
         const mousePX = mouseX / cardBounds.width
         const mousePY = mouseY / cardBounds.height
 
-        const rX = -mousePX * 14
-        const rY = -10
+        const rX = -mousePX * (maxAngleX ?? 0)
+        const rY = -mousePY * (maxAngleY ?? 0)
 
         console.log(`rotateY(${rX}deg) rotateX(${rY}deg)`)
 
