@@ -1,18 +1,18 @@
 import { Inter_Tight } from 'next/font/google'
 
-import type { Metadata } from "next"
-import "./globals.css"
+import type { Metadata } from 'next'
+import './globals.css'
 
-import { Navbar } from "./components/Navbar"
-import { Footer } from "./components/Footer"
+import { Navbar } from './components/Navbar'
+import { Footer } from './components/Footer'
 
 const inter = Inter_Tight({
   weight: 'variable'
 })
 
 export const metadata: Metadata = {
-  title: "🐊 The Gaming Gators @ SFSU",
-  description: "The official student-championed e-sports + general gaming organization at SFSU.",
+  title: '🐊 The Gaming Gators @ San Francisco State',
+  description: 'The official student-championed e-sports + general gaming organization at SFSU.',
 }
 
 export default function RootLayout({
@@ -28,7 +28,6 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-
       </body>
     </html>
   )
