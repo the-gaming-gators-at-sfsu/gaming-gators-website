@@ -44,23 +44,23 @@ export function PortraitCard({ name, title, description, quote, photo, discord }
 
                 {/* main portrait */}
                 <div>
-
+                    {/* TODO: re-add delay-150 when re-adding hover swap */}
                     <Image
-                        className="z-10 absolute w-full h-full px-2 pt-4 object-cover object-top group-hover:scale-105 group-hover:rotate-2 transition-all duration-700 delay-150 ease-in-out drop-shadow drop-shadow-black"
+                        className="z-10 absolute w-full h-full px-2 pt-4 object-cover object-top group-hover:scale-105 group-hover:rotate-2 transition-all duration-700  ease-in-out drop-shadow drop-shadow-black"
                         src={photo ? (photo + '.png') : '/bits/empty_silhoutte.png'}
-                        style={{ opacity: showDetails ? '0%' : '100%' }}
+                        // style={{ opacity: showDetails ? '0%' : '100%' }}
                         alt="" width={320} height={320}
                     />
                     {/* if hover image does not exist then just use base portrait */}
                     {/* TODO: find how to check if file exists (likely just verify an dictionary entry to check) */}
                     {/* currently going to mandate alt photos in the file system (and therefore before builds) */}
                     {
-                    <Image
-                        className="z-10 absolute w-full h-full px-2 pt-4 object-cover object-top group-hover:scale-105 group-hover:rotate-2 transition-all duration-700 ease-in-out drop-shadow drop-shadow-black"
-                        src={photo + '_hover.png'}
-                        style={{ opacity: showDetails ? '100%' : '0%' }}
-                        alt="" width={320} height={320}
-                    />
+                    // <Image
+                    //     className="z-10 absolute w-full h-full px-2 pt-4 object-cover object-top group-hover:scale-105 group-hover:rotate-2 transition-all duration-700 ease-in-out drop-shadow drop-shadow-black"
+                    //     src={photo + '_hover.png'}
+                    //     style={{ opacity: showDetails ? '100%' : '0%' }}
+                    //     alt="" width={320} height={320}
+                    // />
                     }
                 </div>
 
