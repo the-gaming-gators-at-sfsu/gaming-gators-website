@@ -28,6 +28,18 @@ export default function Home() {
         
       </div>
 
+      <div className="w-full px-[15%] py-16">
+        
+      </div>
+
+      <div className="w-full px-[15%] py-16">
+        
+      </div>
+
+      <div className="w-full px-[15%] py-16">
+        
+      </div>
+
 
     </main>
   )
