@@ -6,39 +6,82 @@ import { IoMdReturnLeft } from 'react-icons/io'
 import { teams } from '@/dispositions/teams'
 import { IntroFade } from '@/components/IntroFade'
 import { PortraitCard } from '@/components/PortaitCard'
+import { PerspectiveCard } from '@/components/PerspectiveCard'
 
 const roster = [
     {
-        name: "Lance Ruiz",
-        title: "Vanguard",
-        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game."
-    },
-    {
-        name: "Lance Ruiz",
-        title: "Vanguard",
-        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game."
-    },
-    {
-        name: "Lance Ruiz",
-        title: "Vanguard",
-        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game."
-    },
-    {
-        name: "Lance Ruiz",
+        name: "Player Name",
         title: "Vanguard",
         description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player1"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player2"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player3"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player4",
         discord: "https://www.discord.gg"
     },
     {
-        name: "Lance Ruiz",
+        name: "Player Name",
         title: "Vanguard",
-        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game."
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player5"
     },
     {
-        name: "Lance Ruiz",
+        name: "Player Name",
         title: "Vanguard",
-        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game."
-    }
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player6"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player7"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player8"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player9"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player10"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player11"
+    },
+    {
+        name: "Player Name",
+        title: "Vanguard",
+        description: "A former rival, turned ally. The most versatile and dependable offlaner in the game.",
+        photo: "/bits/player12"
+    },
 ]
 
 export default async function TeamPage({
@@ -80,7 +123,9 @@ export default async function TeamPage({
                 </div>
             </div>
 
-            <div className="w-full px-[15%] py-16">
+            <div className="relative w-full px-[15%] py-16 flex flex-col gap-8">
+
+                <Image className="-z-10 absolute left-0 top-0 w-full h-full object-cover opacity-3" src={"/hex_backdrop.webp"} alt="" width={1920} height={1080} />
 
                 <div className="flex flex-col gap-8">
                     <div>
@@ -90,12 +135,21 @@ export default async function TeamPage({
 
                     <div className="flex flex-wrap justify-left flex-row gap-8 overflow-auto">
                         {roster.map((player, index) =>
-                        <PortraitCard name={player.name} title={player.title} description={player.description} image={player.photo || ""} discord={player.discord || ""} key={index} />
+                        <PerspectiveCard key={index}>
+                            <PortraitCard name={player.name} title={player.title} description={player.description} photo={player.photo || ""} discord={player.discord || ""} key={index} />
+                        </PerspectiveCard>
                         )}
                     </div>
                 </div>
 
+
+                
+
+                
+
             </div>
+
+
             
         </main>
     )
