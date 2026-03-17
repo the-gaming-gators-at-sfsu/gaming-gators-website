@@ -8,13 +8,13 @@ interface PerspectiveCardProps {
     maxAngleY?: number
 }
 
-export function PerspectiveCard({ children, maxAngleX, maxAngleY }: PerspectiveCardProps) {
+export function PerspectiveCard({ children, maxAngleX = 0, maxAngleY = 0 }: PerspectiveCardProps) {
 
     const [perspective, setPerspective] = useState('')
     const [hovering, setHovering] = useState(false)
 
-    const cardRef = useRef(null)
-    const cardBoundsRef = useRef(null)
+    const cardRef = useRef<HTMLDivElement>(null)
+    const cardBoundsRef = useRef<DOMRect>(null)
 
     function updatePerspective(event: MouseEvent) {
         if (!cardBoundsRef.current) return
@@ -27,8 +27,8 @@ export function PerspectiveCard({ children, maxAngleX, maxAngleY }: PerspectiveC
         const mousePX = mouseX / cardBounds.width
         const mousePY = mouseY / cardBounds.height
 
-        const rX = -mousePX * (maxAngleX ?? 0)
-        const rY = -mousePY * (maxAngleY ?? 0)
+        const rX = -mousePX * maxAngleX
+        const rY = -mousePY * maxAngleY
 
         console.log(`rotateY(${rX}deg) rotateX(${rY}deg)`)
 
@@ -37,7 +37,9 @@ export function PerspectiveCard({ children, maxAngleX, maxAngleY }: PerspectiveC
     }
 
     useEffect(() => {
-        cardBoundsRef.current = cardRef.current.getBoundingClientRect()
+        if (cardRef.current) {
+            cardBoundsRef.current = cardRef.current.getBoundingClientRect()
+        }
     }, [cardRef])
     
     return <div
