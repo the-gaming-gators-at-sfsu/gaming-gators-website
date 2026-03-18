@@ -7,7 +7,7 @@ export function Footer() {
     return (
         <footer className="w-full flex justify-center ">
 
-            <div className="w-full md:w-[80%] p-8 lg:px-36 flex flex-col gap-8 bg-[#dc90f7]/30 border-t border-white/40 rounded-t-4xl">
+            <div className="md:w-[80%] w-full p-8 lg:px-36 flex flex-col gap-8 bg-[#dc90f7]/30 border-t border-white/40 rounded-t-4xl">
                 
                 <div className="w-full flex flex-col md:flex-row gap-4 items-center justify-between">
                     <div className="flex flex-col items-center md:items-start">
