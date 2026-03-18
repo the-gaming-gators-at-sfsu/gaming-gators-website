@@ -22,11 +22,11 @@ export function Navbar() {
 
             <div className="w-full md:w-[80%] bg-[#dc90f7]/30 backdrop-blur-xl rounded-b-4xl">
 
-                <div className="w-full h-18 flex flex-row items-center justify-between lg:px-36">
+                <div className="w-full h-18 flex flex-row items-center justify-between px-8 lg:px-24">
                     <Link href="/">
                         <Image src={"/bits/gaming_gators_logomark.webp"} alt="" width={52} height={52} />
                     </Link>
-
+        
                     <div>
                         <div className="hidden sm:flex flex-row lg:gap-4">
                             <Link
