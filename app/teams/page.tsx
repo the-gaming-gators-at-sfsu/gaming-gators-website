@@ -17,7 +17,7 @@ export default function Teams() {
                 <video className="-z-10 absolute top-0 w-full h-full object-cover" src="/teams/valorant_backdrop.webm" autoPlay loop muted />
                 <Image className="-z-10 absolute top-0 w-full h-full object-cover opacity-5" src="/hex_backdrop.webp" alt="" width={1920} height={1080} />
 
-                <div className="z-30 flex flex-col items-center justify-center gap-2 lg:gap-6 py-8">
+                <div className="z-30 flex flex-col items-center justify-center gap-2 lg:gap-6 py-8 text-center">
                     <Image className="w-24 aspect-square drop-shadow-black drop-shadow-2xl object-contain" src="/bits/gaming_gators_logomark.webp" alt="" width={128} height={128} />
                     <h1 className="z-30 md:text-4xl lg:text-7xl font-bold">Our Active Teams</h1>
                     <h2 className="z-30 md:text-xl lg:text-3xl">Explore our current roster competing across these e-sports titles.</h2>
